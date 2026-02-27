@@ -131,21 +131,21 @@ POST   /api/proyecto5/ventas
 
 ## 🖼️ Capturas de pantalla
 
-## Inicio (catálogo) | Inicio (footer)
+| Inicio (catálogo) | Inicio (footer) |
+|-------------------|-----------------|
+| ![inicio1](src/assets/screenshots/inicio1.png) | ![inicio2](src/assets/screenshots/inicio2.png) |
 
-- ![inicio1](src/assets/screenshots/inicio1.png)  ![inicio2](src/assets/screenshots/inicio2.png)
+| Detalle de producto |
+|---------------------|
+| ![detalle](src/assets/screenshots/detalle.png) |
 
-## Detalle de producto
+| Panel (libros) | Panel (registro compras) |
+|----------------|--------------------------|
+| ![panel1](src/assets/screenshots/panel1.png) | ![panel2](src/assets/screenshots/panel2.png) |
 
-- ![detalle](src/assets/screenshots/detalle.png)
-
-## Panel (libros) | Panel (registro compras)
-
-- ![panel1](src/assets/screenshots/panel1.png) | ![panel2](src/assets/screenshots/panel2.png)
-
-## Contacto (principal) | Contacto (redes)
-
-| ![contacto](src/assets/screenshots/contacto.png) | ![contacto2](src/assets/screenshots/contacto2.png)
+| Contacto (principal) | Contacto (redes) |
+|----------------------|------------------|
+| ![contacto](src/assets/screenshots/contacto.png) | ![contacto2](src/assets/screenshots/contacto2.png) |
 
 ---
 
