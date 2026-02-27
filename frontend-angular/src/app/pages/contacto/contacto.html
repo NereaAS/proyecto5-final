@@ -1,1 +1,70 @@
-<p>contacto works!</p>
+<section class="contacto">
+  <!-- Fondo decorativo con líneas rojas -->
+  <div class="contacto__fondo">
+    <div class="linea linea-1"></div>
+    <div class="linea linea-2"></div>
+    <div class="linea linea-3"></div>
+  </div>
+
+  <div class="contacto__contenedor">
+    <!-- Tarjeta principal -->
+    <div class="contacto__tarjeta">
+      
+      <!-- Sello rojo decorativo -->
+      <div class="contacto__sello">印</div>
+      
+      <!-- Avatar -->
+      <div class="contacto__avatar">
+        <img *ngIf="avatar" [src]="'http://localhost:3001' + avatar.imagen" alt="Nerea Alba Sanz">
+        <div *ngIf="!avatar" class="avatar-placeholder">🦊</div>
+      </div>
+
+      <!-- Nombre y título -->
+      <h1 class="contacto__nombre">Nerea Alba Sanz</h1>
+      <p class="contacto__titulo">Ilustradora · Desarrolladora Frontend · Kitsune Arts</p>
+
+      <!-- Línea decorativa (onda japonesa) -->
+      <div class="contacto__onda"></div>
+
+      <!-- Biografía corta -->
+      <div class="contacto__bio">
+        <p>
+          Creadora de <strong>Kitsune Arts</strong>, donde el anime, el shonen y la estética japonesa se encuentran.
+          Actualmente en formación como <strong>Full Stack Developer</strong> en Neoland.
+        </p>
+        <p>
+          🦊 Dibujo, programo y sueño en rojo y negro.
+        </p>
+      </div>
+
+      <!-- Redes sociales con estilo -->
+      <div class="contacto__redes">
+        <a href="mailto:nerea_7789@hotmail.com" class="red" target="_blank">
+          <span class="red-icono">📧</span>
+          <span class="red-texto">Email</span>
+        </a>
+        <a href="https://github.com/NereaAS" class="red" target="_blank">
+          <span class="red-icono">🐙</span>
+          <span class="red-texto">GitHub</span>
+        </a>
+        <a href="#" class="red" target="_blank">
+          <span class="red-icono">🦊</span>
+          <span class="red-texto">Kitsune Arts</span>
+        </a>
+      </div>
+
+      <!-- Sellos decorativos -->
+      <div class="contacto__sellos">
+         <span class="sello">キツネ</span>    
+         <span class="sello">アーツ</span>    
+      </div>
+
+      <!-- Firma y año -->
+      <div class="contacto__firma">
+        <span>© 2026 Nerea Alba Sanz</span>
+        <span>· Proyecto académico ·</span>
+        <span>Neoland</span>
+      </div>
+    </div>
+  </div>
+</section>

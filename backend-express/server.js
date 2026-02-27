@@ -16,6 +16,8 @@ app.use('/api/proyecto5/ventas', ventasRoutes);
 const librosRoutes = require('./routes/libros/libros.routes');
 app.use('/api/proyecto5/react', librosRoutes);
 
+app.use('/api/proyecto5/angular', librosRoutes);
+
 app.get('/', (req, res) => {
   res.send('Backend funcionando correctamente');
 });

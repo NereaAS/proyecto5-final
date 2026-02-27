@@ -136,13 +136,11 @@ export default function Contacto() {
 
           <li>
             💼 <strong>LinkedIn:</strong>{" "}
-            <span style={{ color: "#666" }}>(perfil en construcción)</span>
+            <span style={{ color: "#666" }}>(creando perfil profesional)</span>
           </li>
 
           <li>
-            🧑‍💻 <strong>GitHub:</strong>{" "}
-            <span style={{ color: "#666" }}>(perfil en construcción)</span>
-          </li>
+            🧑‍💻 <strong>GitHub:</strong> <a href="https://githum.com/NereaAS" target="_blank" rel="noopener noreferrer">github.com/NereaAS</a></li>
         </ul>
 
         <p style={{ marginTop: 16, color: "#555" }}>
@@ -166,6 +164,9 @@ export default function Contacto() {
       >
         <div style={{ color: "rgba(33,53,71,0.8)" }}>
           Proyecto académico · <strong>El Séptimo Estante</strong>
+          <p style={{ fontSize: "0.85rem" , color:"#666", marginTop: 16}}>
+            © 2026 Nerea Alba Sanz · Proyecto académico Neoland
+          </p>
         </div>
 
         <div className="contacto__volver">

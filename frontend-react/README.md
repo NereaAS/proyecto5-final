@@ -1,4 +1,3 @@
-
 # 📚 El Séptimo Estante – Frontend (React)
 
 Proyecto frontend desarrollado con **React** como parte del proyecto final del bootcamp Full Stack.  
