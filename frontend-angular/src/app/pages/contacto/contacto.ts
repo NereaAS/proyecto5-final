@@ -10,7 +10,6 @@ import { CommonModule } from '@angular/common';
 })
 export class Contacto implements OnInit {
   avatar: any = null;
-
   constructor(private http: HttpClient) {}
 
   ngOnInit() {
@@ -18,11 +17,17 @@ export class Contacto implements OnInit {
   }
 
   cargarAvatar() {
-    this.http.get('http://localhost:3001/api/proyecto5/angular')
-      .subscribe((data: any) => {
-        this.avatar = data.find((item: any) => item.titulo === 'Avatar Nerea');
-        console.log('Avatar encontrado:', this.avatar)
+    this.http.get('http://localhost:3001/uploads/avatar-nerea.jpg', { responseType: 'blob' })
+      .subscribe({
+        next: (imageBlob) => {
+          const imageUrl = URL.createObjectURL(imageBlob);
+          this.avatar = { imagen: imageUrl };
+          console.log('http://localhost:3001/uploads/avatar-nerea.jpg:', imageUrl);
+        },
+        error: () => {
+          console.log('No se pudo cargar la imagen de avatar');
+          this.avatar = null;
+        }
       });
   }
 }
-

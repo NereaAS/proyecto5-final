@@ -1,0 +1,325 @@
+/* =========================
+   FONDO GENERAL (neones)
+========================= */
+.detalle {
+  position: relative;
+  min-height: 100vh;
+  background: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.detalle__fondo {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.linea {
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, #b11226, transparent);
+  animation: moverLinea 15s infinite linear;
+}
+
+.linea-1 {
+  top: 20%;
+  animation-delay: 0s;
+  opacity: 0.3;
+}
+
+.linea-2 {
+  top: 50%;
+  animation-delay: 5s;
+  opacity: 0.5;
+}
+
+.linea-3 {
+  top: 80%;
+  animation-delay: 10s;
+  opacity: 0.3;
+}
+
+@keyframes moverLinea {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* =========================
+   CONTENEDOR PRINCIPAL
+========================= */
+.detalle__contenedor {
+  position: relative;
+  z-index: 10;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* =========================
+   TARJETA PRINCIPAL
+========================= */
+.detalle__tarjeta {
+  background: #f1f1ed;
+  border-radius: 40px;
+  padding: 3rem;
+  position: relative;
+  border: 3px solid #b11226;
+  box-shadow: 0 0 0 2px #b11226,
+              20px 20px 0 rgba(177, 18, 38, 0.3);
+}
+
+/* Sello decorativo */
+.detalle__sello {
+  position: absolute;
+  top: -20px;
+  right: 30px;
+  background: #b11226;
+  color: white;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-family: "Noto Serif JP", serif;
+  transform: rotate(15deg);
+  border: 3px solid #f1f1ed;
+  box-shadow: 0 0 20px #b11226;
+  z-index: 20;
+}
+
+/* =========================
+   GRID DE DOS COLUMNAS
+========================= */
+.detalle__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+/* =========================
+   COLUMNA DE IMAGEN
+========================= */
+.detalle__imagen-col {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detalle__imagen-container {
+  width: 100%;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 3px solid #b11226;
+  box-shadow: 0 0 0 4px #f1f1ed, 0 0 30px #b11226;
+}
+
+.detalle__imagen {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s;
+}
+
+.detalle__imagen:hover {
+  transform: scale(1.02);
+}
+
+/* =========================
+   COLUMNA DE INFORMACIÓN
+========================= */
+.detalle__info-col {
+  padding: 1rem 0;
+}
+
+.detalle__titulo {
+  color: #b11226;
+  font-size: 2.5rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 800;
+}
+
+.detalle__precio-contenedor {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.detalle__precio {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #b11226;
+}
+
+.detalle__impuestos {
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+.detalle__estilo {
+  margin-bottom: 1.5rem;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(177, 18, 38, 0.2);
+}
+
+.label {
+  color: #b11226;
+  font-weight: 600;
+  margin-right: 0.5rem;
+}
+
+.valor {
+  color: #1f2933;
+}
+
+/* =========================
+   MEDIDAS Y FORMATO
+========================= */
+.detalle__medidas {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 1.2rem;
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+  border-left: 5px solid #b11226;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.medida {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px dashed rgba(177, 18, 38, 0.2);
+}
+
+.medida:last-child {
+  border-bottom: none;
+}
+
+/* =========================
+   PROCESO DE COMPRA
+========================= */
+.detalle__proceso, .detalle__uso {
+  margin-bottom: 1.5rem;
+}
+
+.detalle__proceso h3, .detalle__uso h3 {
+  color: #b11226;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.detalle__proceso ol {
+  padding-left: 1.2rem;
+  color: #1f2933;
+  line-height: 1.8;
+}
+
+.detalle__uso p {
+  color: #1f2933;
+  font-size: 0.95rem;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 1rem;
+  border-radius: 12px;
+  border-left: 5px solid #C9A227;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================
+   BOTONES DE ACCIÓN
+========================= */
+.detalle__acciones {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin: 2rem 0;
+  flex-wrap: wrap;
+}
+
+.btn-comprar {
+  background: #b11226;
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  border-radius: 40px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(177, 18, 38, 0.3);
+  min-width: 160px;
+}
+
+.btn-comprar:hover {
+  background: #e63946;
+  transform: scale(1.02);
+  box-shadow: 0 0 20px #b11226;
+}
+
+.btn-volver {
+  color: #b11226;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.8rem 1.5rem;
+  border: 2px solid #b11226;
+  border-radius: 40px;
+  transition: all 0.3s;
+}
+
+.btn-volver:hover {
+  background: rgba(177, 18, 38, 0.1);
+}
+
+/* =========================
+   MÉTODOS DE PAGO
+========================= */
+.detalle__pago {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #6b7280;
+  text-align: center;
+  padding-top: 1rem;
+  border-top: 1px dashed rgba(177, 18, 38, 0.2);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .detalle__grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .detalle__tarjeta {
+    padding: 2rem;
+  }
+
+  .detalle__titulo {
+    font-size: 2rem;
+  }
+
+  .detalle__acciones {
+    flex-direction: column;
+  }
+
+  .btn-comprar, .btn-volver {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .detalle__precio {
+    font-size: 1.8rem;
+  }
+  
+  .medida {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+}

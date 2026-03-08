@@ -1,1 +1,119 @@
+<!-- HERO -->
+@if (router.url !== '/contacto'){
+<section class="hero">
+
+  <!-- fondo con líneas -->
+  <div class="hero__fondo">
+    <div class="linea linea-1"></div>
+    <div class="linea linea-2"></div>
+    <div class="linea linea-3"></div>
+  </div>
+
+  <div class="hero__content">
+
+    <!-- LOGO -->
+    <div class="hero__logo">
+      <img src="http://localhost:3001/uploads/logo.png" alt="Kitsune Arts Logo">
+    </div>
+
+    <h1 class="hero__title">Kitsune Arts</h1>
+    <p class="hero__subtitle">Ilustración digital · Anime · Estética japonesa</p>
+    <a routerLink="/" class="hero__jp">キツネアーツ</a>
+
+  </div>
+
+</section>
+}
+
+
+<!-- NAVBAR GLOBAL -->
+@if (router.url !== '/contacto'){
+<nav class="nav-bar">
+  <div class="nav-bar__container">
+
+    <div class="nav-bar__links">
+      <a routerLink="/home">Home</a>
+      <a routerLink="/panel">Panel</a>
+      <a routerLink="/contacto">Contacto</a>
+    </div>
+
+
+    <!-- CARRITO CON HOVER -->
+    <div class="carrito-hover">
+      <a routerLink="/carrito" class="carrito-icono">
+        <span class="carrito-emoji">🛒</span>
+        <span *ngIf="cartService.totalItems() > 0" class="carrito-contador">
+          {{ cartTotal() }}
+        </span>
+      </a>
+
+      <!-- MINICARRITO DESPLEGABLE -->
+      <div class="minicarrito">
+        <div *ngIf="cartService.items().length === 0" class="minicarrito__vacio">
+          <p>🛒 El carrito está vacío</p>
+        </div>
+        <div *ngIf="cartService.items().length > 0">
+          <div *ngFor="let item of cartService.items()" class="minicarrito__item">
+            <img [src]="'http://localhost:3001/uploads/' + item.imagen" class="minicarrito__img">
+            <div class="minicarrito__detalle">
+              <span class="minicarrito__titulo">{{ item.titulo }}</span>
+              <span class="minicarrito__cantidad">{{ item.cantidad }} x {{ item.precio }}€</span>
+            </div>
+          </div>
+          <div class="minicarrito__total">
+            <strong>Total:</strong> {{ cartService.totalPrecio() }}€
+          </div>
+          <a routerLink="/carrito" class="minicarrito__btn">Ver carrito</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+}
+
+<!-- CONTENIDO DINÁMICO -->
 <router-outlet></router-outlet>
+
+<!-- FOOTER GLOBAL -->
+@if (router.url !== '/contacto'){
+<footer class="footer">
+
+  <div class="footer__contenido">
+
+    <div class="footer__logo">
+      <span class="footer__seal">印</span>
+    </div>
+    
+    <div class="footer__redes">
+      <a href="mailto:nerea_7789@hotmail.com" class="red" target="_blank">
+        <span class="red-icono">📧</span>
+        <span class="red-texto">Email</span>
+      </a>
+      <a href="https://github.com/NereaAS" class="red" target="_blank">
+        <span class="red-icono">🐙</span>
+        <span class="red-texto">GitHub</span>
+      </a>
+      <a href="#" class="red">
+        <span class="red-icono">🦊</span>
+        <span class="red-texto">Kitsune Arts</span>
+      </a>
+    </div>
+    
+    <div class="footer__sellos">
+      <span class="sello">キツネ</span>
+      <span class="sello">アーツ</span>
+    </div>
+  </div>
+
+  <div class="footer__legal">
+    <span>© 2026 Nerea Alba Sanz</span>
+    <span class="separador">·</span>
+    <span>Proyecto académico</span>
+    <span class="separador">·</span>
+    <span>Neoland</span>
+  </div>
+
+  <div class="footer__onda"></div>
+</footer>
+}

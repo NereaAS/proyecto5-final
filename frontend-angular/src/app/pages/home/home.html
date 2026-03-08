@@ -1,52 +1,245 @@
-<section class="hero">
-  <div class="hero__overlay"></div>
-
-  <div class="hero__content">
-    <h1 class="hero__title">KITSUNE ARTS</h1>
-    <p class="hero__subtitle">
-      Ilustraciones digitales de estética japonesa.
-    </p>
+<section class="home">
+  <!-- Fondo decorativo con líneas rojas (neones) -->
+  <div class="home__fondo">
+    <div class="linea linea-1"></div>
+    <div class="linea linea-2"></div>
+    <div class="linea linea-3"></div>
   </div>
-</section>
 
-<nav class="nav-bar">
-  <div class="nav-bar__container">
-    <a routerLink="/" class="nav-bar__logo">キツネアーツ</a>
+  <!-- SECCIÓN DESTACADOS -->
+  <section class="destacados">
+    <h2>Colección destacada</h2>
 
-    <div class="nav-bar__links">
-      <a routerLink="/home">Home</a>
-      <a routerLink="/panel">Explorar ilustraciones</a>
-      <a routerLink="/contacto">Contacto</a>
+    <div class="destacados__grid">
+      <!-- Kawaii -->
+      <article class="card">
+        <div class="card__img">
+          <img src="http://localhost:3001/uploads/bulma-nezuko.jpg" alt="Bulma y Nezuko">
+        </div>
+        <h3>Bulma meets Nezuko</h3>
+        <p class="card__coleccion">Kawaii</p>
+        <div class="card__footer">
+          <span class="card__precio">25 €</span>
+          <div class="card__acciones">
+            <a [routerLink]="['/producto', 1772197634697]" class="card__detalle">Ver detalle</a>
+            <button class="card__btn" (click)="anadirAlCarrito({id:1772197634697, titulo:'Bulma meets Nezuko', precio:25, imagen:'bulma-nezuko.jpg', coleccion:'Kawaii'})">
+              🛒 Añadir al carrito
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Power -->
+      <article class="card">
+        <div class="card__img">
+          <img src="http://localhost:3001/uploads/power.jpg" alt="Power">
+        </div>
+        <h3>Power · Modo programadora</h3>
+        <p class="card__coleccion">Shonen</p>
+        <div class="card__footer">
+          <span class="card__precio">40 €</span>
+          <div class="card__acciones">
+            <a [routerLink]="['/producto', 'power']" class="card__detalle">Ver detalle</a>
+            <button class="card__btn" (click)="anadirAlCarrito({id:1772197552350, titulo:'Power', precio:40, imagen:'power.jpg', coleccion:'Shonen'})">
+              🛒 Añadir al carrito
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- One Piece -->
+      <article class="card">
+        <div class="card__img">
+          <img src="http://localhost:3001/uploads/ataque-titanes.jpg" alt="Ataque Titanes">
+        </div>
+        <h3>Retumbar . Attack on Titan</h3>
+        <p class="card__coleccion">Manga</p>
+        <div class="card__footer">
+          <span class="card__precio">35 €</span>
+          <div class="card__acciones">
+            <a [routerLink]="['/producto', 1772989571038]" class="card__detalle">Ver detalle</a>
+            <button class="card__btn" (click)="anadirAlCarrito({id:1772989571038, titulo:'ataque-titanes', precio:35, imagen:'ataque-titanes.jpg', coleccion:'Manga'})">
+              🛒 Añadir al carrito
+            </button>
+          </div>
+        </div>
+      </article>
     </div>
-  </div>
-</nav>
+  </section>
 
-<section class="destacados">
-  <h2>Colección destacada</h2>
+  <!-- GALERÍA COMPLETA -->
+  <section class="galeria">
+    <h1>Galería</h1>
 
-  <div class="destacados__grid">
-    <article class="card">
-      <div class="card__img"></div>
-      <h3>Tokio Neón</h3>
-      <p>Ilustración digital – Estilo urbano</p>
-    </article>
+    <!-- COLECCIÓN KAWAII 🌸 -->
+    <div class="kawaii__grid">
+      <h2>KAWAII🌸</h2>
+      <p>Dulzura nipona</p>
 
-    <article class="card">
-      <div class="card__img"></div>
-      <h3>Espíritu del zorro</h3>
-      <p>Ilustración digital – Kitsune</p>
-    </article>
+      <article class="card">
+        <div class="card__img">
+          <img src="http://localhost:3001/uploads/bulma-nezuko.jpg" alt="Bulma y Nezuko">
+        </div>
+        <h3>Bulma meets Nezuko</h3>
+        <p class="card__coleccion">Kawaii</p>
+        <div class="card__footer">
+          <span class="card__precio">25 €</span>
+          <div class="card__acciones">
+            <a [routerLink]="['/producto', 1772197634697]" class="card__detalle">Ver detalle</a>
+            <button class="card__btn" (click)="anadirAlCarrito({id:1772197634697, titulo:'Bulma meets Nezuko', precio:25, imagen:'bulma-nezuko.jpg', coleccion:'Kawaii'})">
+              🛒 Añadir al carrito
+            </button>
+          </div>
+        </div>
+      </article>
 
-    <article class="card">
-      <div class="card__img"></div>
-      <h3>Callejón de medianoche</h3>
-      <p>Ilustración digital – Noche en Tokio</p>
-    </article>
+      <article class="card">
+        <div class="card__img">
+          <img src="http://localhost:3001/uploads/pokemon.jpg" alt="Pokemon">
+        </div>
+        <h3>Pokémon & Campanitas</h3>
+        <p class="card__coleccion">Kawaii</p>
+        <div class="card__footer">
+          <span class="card__precio">20 €</span>
+          <div class="card__acciones">
+            <a [routerLink]="['/producto', 1772197495342]" class="card__detalle">Ver detalle</a>
+            <button class="card__btn" (click)="anadirAlCarrito({id:1772197495342, titulo:'Pokémon & Campanitas', precio:20, imagen:'pokemon.jpg', coleccion:'Kawaii'})">
+              🛒 Añadir al carrito
+            </button>
+          </div>
+        </div>
+      </article>
 
-    <article class="card">
-      <div class="card__img"></div>
-      <h3>Espada carmesí</h3>
-      <p>Ilustración digital – Fantasía oscura</p>
-    </article>
-  </div>
+      <article class="card">
+        <div class="card__img">
+          <img src="http://localhost:3001/uploads/boku.jpg" alt="Boku no Hero">
+        </div>
+        <h3>Boku no Hero · Smash!</h3>
+        <p class="card__coleccion">Kawaii</p>
+        <div class="card__footer">
+          <span class="card__precio">30 €</span>
+          <div class="card__acciones">
+            <a [routerLink]="['/producto', 'boku']" class="card__detalle">Ver detalle</a>
+            <button class="card__btn" (click)="anadirAlCarrito({id:1772197634698, titulo:'Boku no Hero', precio:30, imagen:'boku.jpg', coleccion:'Kawaii'})">
+              🛒 Añadir al carrito
+            </button>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- COLECCIÓN SHONEN ⚡ -->
+    <div class="shonen__grid">
+      <h2>SHONEN⚡</h2>
+      <p>Acción y sentimiento</p>
+
+      <article class="card">
+        <div class="card__img">
+          <img src="http://localhost:3001/uploads/power.jpg" alt="Power">
+        </div>
+        <h3>Power · Modo programadora</h3>
+        <p class="card__coleccion">Shonen</p>
+        <div class="card__footer">
+          <span class="card__precio">40 €</span>
+          <div class="card__acciones">
+            <a [routerLink]="['/producto', 'power']" class="card__detalle">Ver detalle</a>
+            <button class="card__btn" (click)="anadirAlCarrito({id:1772896540687, titulo:'Power', precio:40, imagen:'power.jpg', coleccion:'Shonen'})">
+              🛒 Añadir al carrito
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card__img">
+          <img src="http://localhost:3001/uploads/chihiro-ramen.jpg" alt="Chihiro">
+        </div>
+        <h3>El festín de Sin Rostro</h3>
+        <p class="card__coleccion">Shonen</p>
+        <div class="card__footer">
+          <span class="card__precio">30 €</span>
+          <div class="card__acciones">
+            <a [routerLink]="['/producto', 1772197552373]" class="card__detalle">Ver detalle</a>
+            <button class="card__btn" (click)="anadirAlCarrito({id:1772197552373, titulo:'El festín de Sin Rostro', precio:30, imagen:'chihiro-ramen.jpg', coleccion:'Shonen'})">
+              🛒 Añadir al carrito
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card__img">
+          <img src="http://localhost:3001/uploads/touka.jpg" alt="Touka">
+        </div>
+        <h3>Touka · Alas de libertad</h3>
+        <p class="card__coleccion">Shonen</p>
+        <div class="card__footer">
+          <span class="card__precio">30 €</span>
+          <div class="card__acciones">
+            <a [routerLink]="['/producto', 1772197521815]" class="card__detalle">Ver detalle</a>
+            <button class="card__btn" (click)="anadirAlCarrito({id:1772197521815, titulo:'Touka', precio:30, imagen:'touka.jpg', coleccion:'Shonen'})">
+              🛒 Añadir al carrito
+            </button>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- COLECCIÓN MANGA 🖋️ -->
+    <div class="manga__grid">
+      <h2>MANGA🖋️</h2>
+      <p>Clásicos que no fallan</p>
+
+      <article class="card">
+        <div class="card__img">
+          <img src="http://localhost:3001/uploads/one-piece.jpg" alt="One Piece">
+        </div>
+        <h3>One Piece · Espíritu pirata</h3>
+        <p class="card__coleccion">Manga</p>
+        <div class="card__footer">
+          <span class="card__precio">30 €</span>
+          <div class="card__acciones">
+            <a [routerLink]="['/producto', 1772197584702]" class="card__detalle">Ver detalle</a>
+            <button class="card__btn" (click)="anadirAlCarrito({id:1772197584702, titulo:'One Piece', precio:30, imagen:'one-piece.jpg', coleccion:'Manga'})">
+              🛒 Añadir al carrito
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card__img">
+          <img src="http://localhost:3001/uploads/akaza.jpg" alt="Akaza">
+        </div>
+        <h3>Akaza · Luna superior</h3>
+        <p class="card__coleccion">Manga</p>
+        <div class="card__footer">
+          <span class="card__precio">20 €</span>
+          <div class="card__acciones">
+            <a [routerLink]="['/producto', 1772197608343]" class="card__detalle">Ver detalle</a>
+            <button class="card__btn" (click)="anadirAlCarrito({id:1772197608343, titulo:'Akaza', precio:20, imagen:'akaza.jpg', coleccion:'Manga'})">
+              🛒 Añadir al carrito
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="card__img">
+          <img src="http://localhost:3001/uploads/jujutsu.jpg" alt="Jujutsu Kaisen">
+        </div>
+        <h3>Jujutsu Kaisen · Maldición</h3>
+        <p class="card__coleccion">Manga</p>
+        <div class="card__footer">
+          <span class="card__precio">20 €</span>
+          <div class="card__acciones">
+            <a [routerLink]="['/producto', 'jujutsu']" class="card__detalle">Ver detalle</a>
+            <button class="card__btn" (click)="anadirAlCarrito({id:1772197634699, titulo:'Jujutsu Kaisen', precio:20, imagen:'jujutsu.jpg', coleccion:'Manga'})">
+              🛒 Añadir al carrito
+            </button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
 </section>

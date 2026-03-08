@@ -1,0 +1,62 @@
+<section class="carrito">
+  <div class="carrito__fondo">
+    <div class="linea linea-1"></div>
+    <div class="linea linea-2"></div>
+    <div class="linea linea-3"></div>
+  </div>
+
+  <div class="carrito__contenedor">
+    <h1 class="carrito__titulo">🛒 Tu carrito</h1>
+
+    <div *ngIf="cartService.items().length === 0" class="carrito__vacio">
+      <p>No hay productos en el carrito</p>
+      <a routerLink="/home" class="btn-volver">← Seguir comprando</a>
+    </div>
+
+    <div *ngIf="cartService.items().length > 0" class="carrito__contenido">
+      
+      <!-- LISTA DE PRODUCTOS -->
+      <div class="carrito__lista">
+        <div *ngFor="let item of cartService.items()" class="carrito__item">
+          <img [src]="'http://localhost:3001/uploads/' + item.imagen" class="carrito__imagen">
+          
+          <div class="carrito__info">
+            <h3>{{ item.titulo }}</h3>
+            <p class="carrito__coleccion">{{ item.coleccion }}</p>
+          </div>
+
+          <div class="carrito__cantidad">
+            <button (click)="cartService.quitar(item.id)" class="btn-cantidad">−</button>
+            <span class="cantidad">{{ item.cantidad }}</span>
+            <button (click)="cartService.agregar(item)" class="btn-cantidad">+</button>
+          </div>
+
+          <div class="carrito__precio">
+            {{ item.precio * item.cantidad }} €
+          </div>
+
+          <button (click)="cartService.eliminar(item.id)" class="btn-eliminar">🗑️</button>
+        </div>
+      </div>
+
+      <!-- RESUMEN Y COMPRA -->
+      <div class="carrito__resumen">
+        <h2>Resumen</h2>
+        <div class="resumen__linea">
+          <span>Productos ({{ cartService.totalItems() }})</span>
+          <span>{{ cartService.totalPrecio() }} €</span>
+        </div>
+        <div class="resumen__linea total">
+          <span>Total</span>
+          <span>{{ cartService.totalPrecio() }} €</span>
+        </div>
+
+        <button class="btn-comprar" (click)="finalizarCompra()">
+          Finalizar compra
+        </button>
+
+        <a routerLink="/home" class="btn-volver">← Seguir comprando</a>
+      </div>
+    </div>
+  </div>
+</section>
