@@ -1,0 +1,328 @@
+/* =========================
+   DASHBOARD 
+========================= */
+.dashboard {
+  position: relative;
+  min-height: 100vh;
+  background: #0a0a0a;
+  padding: 2rem;
+}
+
+.dashboard__fondo {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.linea {
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, transparent, #b11226, transparent);
+  animation: moverLinea 15s infinite linear;
+}
+
+.linea-1 { top: 20%; animation-delay: 0s; opacity: 0.3; }
+.linea-2 { top: 50%; animation-delay: 5s; opacity: 0.5; }
+.linea-3 { top: 80%; animation-delay: 10s; opacity: 0.3; }
+
+@keyframes moverLinea {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.dashboard__contenedor {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgb(241, 228, 228);
+  padding: 2rem;
+  border-radius: 20px;
+  border: 2px solid #b11226;
+}
+
+/* =========================
+   TÍTULOS (ROJOS, VISIBLES)
+========================= */
+.dashboard__titulo {
+  color: #b11226;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 10px rgba(177, 18, 38, 0.5);
+}
+
+.seccion__titulo {
+  color: #b11226;
+  font-size: 1.5rem;
+  margin: 2rem 0 1rem;
+  border-bottom: 2px solid #b11226;
+  padding-bottom: 0.5rem;
+}
+
+.formulario__titulo {
+  color: #b11226;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+/* =========================
+   MENSAJE
+========================= */
+.mensaje {
+  background: #d4edda;
+  color: #155724;
+  padding: 0.75rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* =========================
+   FORMULARIO
+========================= */
+.formulario {
+  background: #c5c1c1;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+}
+
+.formulario input {
+  width: 100%;
+  padding: 0.6rem;
+  margin-bottom: 0.8rem;
+  border: 2px solid #b11226;
+  border-radius: 8px;
+  background: white;
+  color: #1f2933;
+}
+
+.formulario input:focus {
+  outline: none;
+  border-color: #e63946;
+  box-shadow: 0 0 10px #b11226;
+}
+
+.formulario-botones {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.btn-submit {
+  background: #b11226;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+  flex: 1;
+}
+
+.btn-submit:hover {
+  background: #e63946;
+  transform: scale(1.02);
+  box-shadow: 0 0 15px #b11226;
+}
+
+.btn-cancelar {
+  background: #6c757d;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+  flex: 1;
+}
+
+.btn-cancelar:hover {
+  background: #5a6268;
+  transform: scale(1.02);
+}
+
+/* =========================
+   LISTA DE ILUSTRACIONES
+========================= */
+.lista {
+  margin: 1rem 0;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f1f1ed;
+  padding: 0.8rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  color: #1f2933;
+  border-left: 5px solid #b11226;
+  transition: transform 0.2s;
+}
+
+.item:hover {
+  transform: translateX(5px);
+}
+
+.item-info {
+  flex: 1;
+}
+
+.item-acciones button {
+  padding: 0.3rem 1rem;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn-editar {
+  background: #C9A227;
+  color: white;
+}
+
+.btn-editar:hover {
+  background: #b38f2a;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #C9A227;
+}
+
+.btn-eliminar {
+  background: #dc2626;
+  color: white;
+}
+
+.btn-eliminar:hover {
+  background: #b11226;
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #dc2626;
+}
+
+.vacio {
+  text-align: center;
+  color: #f8d7e3;
+  padding: 2rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  font-style: italic;
+}
+
+/* =========================
+   REGISTRO DE COMPRAS
+========================= */
+.actualizar-container {
+  text-align: right;
+  margin-bottom: 1rem;
+}
+
+.btn-actualizar {
+  background: #b11226;
+  color: white;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.btn-actualizar:hover {
+  background: #e63946;
+  transform: scale(1.02);
+  box-shadow: 0 0 15px #b11226;
+}
+
+.compras {
+  margin: 1rem 0;
+}
+
+.compra {
+  display: flex;
+  justify-content: space-between;
+  background: #f1f1ed;
+  padding: 0.8rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  color: #1f2933;
+  font-size: 0.9rem;
+  border-left: 5px solid #C9A227;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.compra-fecha {
+  color: #6b7280;
+  min-width: 120px;
+}
+
+.compra-producto {
+  font-weight: 600;
+  color: #b11226;
+}
+
+.compra-origen {
+  color: #1f2933;
+}
+
+.compra-comprador {
+  color: #1f2933;
+}
+
+/* =========================
+   VOLVER AL INICIO
+========================= */
+.volver {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.btn-volver {
+  color: #b11226;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 0.6rem 2rem;
+  border: 2px solid #b11226;
+  border-radius: 30px;
+  display: inline-block;
+  transition: all 0.3s;
+}
+
+.btn-volver:hover {
+  background: #b11226;
+  color: white;
+  transform: scale(1.02);
+  box-shadow: 0 0 15px #b11226;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 600px) {
+  .compra {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .item-acciones {
+    align-self: flex-end;
+  }
+  
+  .formulario-botones {
+    flex-direction: column;
+  }
+}

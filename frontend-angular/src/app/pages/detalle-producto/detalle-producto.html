@@ -1,98 +1,120 @@
-<div style="background: red; color:aliceblue; padding: 20px; font-size: 24px;">
-  PRUEBA DE HTML SE ESTA RENDERIZANDO
-</div>
+<div class="detalle" *ngIf="producto">
 
-<!-- Fondo decorativo con líneas rojas (siempre visible) -->
-<div class="detalle__fondo">
-  <div class="linea linea-1"></div>
-  <div class="linea linea-2"></div>
-  <div class="linea linea-3"></div>
-</div>
+  <div class="detalle__fondo">
+    <div class="linea linea-1"></div>
+    <div class="linea linea-2"></div>
+    <div class="linea linea-3"></div>
+  </div>
 
-<!-- Contenido principal (solo si hay producto) -->
-<div class="detalle__contenedor" *ngIf="producto">
-  <!-- Tarjeta principal -->
-  <div class="detalle__tarjeta">
-   
-    <!-- Sello rojo decorativo -->
-    <div class="detalle__sello">印</div>
-   
-    <div class="detalle__grid">
-     
-      <!-- Columna izquierda: imagen grande -->
-      <div class="detalle__imagen-col">
-        <div class="detalle__imagen-container">
-          <img src="http:/localhost:3001/uploads/bulma-nezuko.jpg" width="200"/>
-        </div>
-      </div>
+  <div class="detalle__contenedor">
 
-     
-      <div class="detalle__info-col">
-       
-        <!-- Título y precio -->
-        <h1 class="detalle__titulo">{{ producto?.titulo }}</h1>
-       
-        <div class="detalle__precio-contenedor">
-          <span class="detalle__precio">{{ producto?.precio }} €</span>
-          <span class="detalle__impuestos">IVA incluido</span>
-        </div>
+    <div class="detalle__tarjeta">
 
-        <!-- Colección / estilo -->
-        <div class="detalle__estilo">
-          <span class="label">Estilo:</span>
-          <span class="valor">{{ producto?.coleccion | titlecase }}</span>
-        </div>
+      <div class="detalle__sello">印</div>
 
-        <!-- Tamaño y formato -->
-        <div class="detalle__medidas">
-          <div class="medida">
-            <span class="label">Tamaño:</span>
-            <span class="valor">3000 x 3000 px</span>
-          </div>
-          <div class="medida">
-            <span class="label">Formato:</span>
-            <span class="valor">PNG / JPG</span>
-          </div>
-          <div class="medida">
-            <span class="label">Resolución:</span>
-            <span class="valor">300 ppp</span>
+      <div class="detalle__grid">
+
+        <div class="detalle__imagen-col">
+          <div class="detalle__imagen-container">
+            <img
+              [src]="'http://localhost:3001/uploads/' + producto.imagen"
+              class="detalle__imagen"
+              [alt]="producto.titulo"
+              (click)="ampliarImagen()"
+              title="Haz clic para ampliar"
+            />
           </div>
         </div>
 
-        <!-- Descripción del proceso -->
-        <div class="detalle__proceso">
-          <h3>Cómo funciona:</h3>
-          <ol>
-            <li>Selecciona la ilustración que deseas.</li>
-            <li>Realiza el pago seguro.</li>
-            <li>Recibirás un borrador para aprobación en 24-48h.</li>
-            <li>Una vez aprobado, se envía el archivo final a tu email.</li>
-          </ol>
-        </div>
+        <div class="detalle__info-col">
 
-        <!-- Uso y derechos -->
-        <div class="detalle__uso">
-          <h3>Importante:</h3>
-          <p>Esta ilustración digital es para uso personal no comercial. No se permite la reventa o distribución sin permiso.</p>
-        </div>
+          <h1 class="detalle__titulo">
+            {{ producto.titulo }}
+          </h1>
 
-        <!-- Botones de acción -->
-        <div class="detalle__acciones">
-          <button class="btn-comprar" (click)="comprar(producto)">Comprar</button>
-          <a routerLink="/home" class="btn-volver">← Seguir explorando</a>
-        </div>
+          <div class="detalle__precio-contenedor">
+            <span class="detalle__precio">
+              {{ producto.precio }} €
+            </span>
+            <span class="detalle__impuestos">IVA incluido</span>
+          </div>
 
-        <!-- Métodos de pago -->
-        <div class="detalle__pago">
-          <p>Pago seguro con tarjeta / PayPal</p>
+          <div class="detalle__estilo">
+            <span class="label">Estilo:</span>
+            <span class="valor">
+              {{ producto.coleccion }}
+            </span>
+          </div>
+
+          <div class="detalle__medidas">
+
+            <div class="medida">
+              <span class="label">Tamaño:</span>
+              <span class="valor">3000 x 3000 px</span>
+            </div>
+
+            <div class="medida">
+              <span class="label">Formato:</span>
+              <span class="valor">PNG / JPG</span>
+            </div>
+
+            <div class="medida">
+              <span class="label">Resolución:</span>
+              <span class="valor">300 ppp</span>
+            </div>
+
+          </div>
+
+          <div class="detalle__proceso">
+
+            <h3>Cómo funciona:</h3>
+
+            <ol>
+              <li>Selecciona la ilustración que deseas.</li>
+              <li>Realiza el pago seguro.</li>
+              <li>Recibirás un borrador para aprobación en 24-48h.</li>
+              <li>Una vez aprobado, se envía el archivo final a tu email.</li>
+            </ol>
+
+          </div>
+
+          <div class="detalle__uso">
+
+            <h3>Importante:</h3>
+
+            <p>
+              Esta ilustración digital es para uso personal no comercial.
+              No se permite la reventa o distribución sin permiso.
+            </p>
+
+          </div>
+
+          <div class="detalle__acciones">
+
+            <button
+              class="btn-comprar"
+              (click)="anadirAlCarrito(producto)"
+            >
+              Añadir al carrito
+            </button>
+
+            <a
+              routerLink="/home"
+              class="btn-volver"
+            >
+              ← Seguir explorando
+            </a>
+
+          </div>
+
+          <div class="detalle__pago">
+            <p>Pago seguro con tarjeta / PayPal</p>
+          </div>
+
         </div>
 
       </div>
     </div>
   </div>
-</div>
 
-<!-- Mensaje de error o carga -->
-<div *ngIf="!producto" class="cargando">
-  <p>Cargando producto...</p>
 </div>

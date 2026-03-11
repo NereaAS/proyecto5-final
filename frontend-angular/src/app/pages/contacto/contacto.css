@@ -178,6 +178,39 @@
   color: #b11226;
 }
 
+.contacto__subtitulo {
+  color: #b11226;
+  text-align: center;
+  margin: 2rem 0 1rem;
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-shadow: 0 0 8px rgba(177, 18, 38, 0.3);
+}
+
+.contacto__tecnologias-tres {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.tech-line {
+  color: #850303;
+  font-size: 1.1rem;
+  margin: 0.3rem 0;
+  letter-spacing: 0.5px;
+}
+
+.tech-line span {
+  color: #3a0910;
+  font-weight: 600;
+}
+
+.tech-line.en-formacion {
+  color: #C9A227;
+  font-style: italic;
+  font-size: 1rem;
+  margin-top: 0.8rem;
+}
+
 /* =========================
    REDES SOCIALES
 ========================= */
@@ -253,6 +286,7 @@
   padding-top: 1rem;
   border-top: 1px dashed #b11226;
 }
+
 
 /* =========================
    RESPONSIVE

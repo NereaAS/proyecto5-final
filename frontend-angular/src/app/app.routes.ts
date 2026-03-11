@@ -9,8 +9,8 @@ import { Carrito } from './pages/carrito/carrito';
 export const routes: Routes = [
   { path: '', component: Home, pathMatch: 'full' },
   { path: 'home', component: Home },
-  { path: 'panel', component: Dashboard },
-  { path: 'producto/:id', component: DetalleProducto },
+  { path: 'panel', component: Dashboard , runGuardsAndResolvers:'always'},
+  { path: 'producto/:id', component: DetalleProducto, runGuardsAndResolvers:'always' },
   { path: 'contacto', component: Contacto },
   { path: 'carrito', component: Carrito }, 
   { path: '**', redirectTo: 'home' }

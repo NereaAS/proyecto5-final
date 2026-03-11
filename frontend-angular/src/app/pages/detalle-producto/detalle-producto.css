@@ -99,6 +99,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 3rem;
+  align-items: start;
 }
 
 /* =========================
@@ -106,8 +107,9 @@
 ========================= */
 .detalle__imagen-col {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  margin-top: -10px;
 }
 
 .detalle__imagen-container {
@@ -121,19 +123,23 @@
 .detalle__imagen {
   width: 100%;
   height: auto;
+  max-height: 500px;
+  object-fit: contain;
   display: block;
-  transition: transform 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
 }
 
 .detalle__imagen:hover {
   transform: scale(1.02);
+  box-shadow: 0 0 20px #b11226;
 }
 
 /* =========================
    COLUMNA DE INFORMACIÓN
 ========================= */
 .detalle__info-col {
-  padding: 1rem 0;
+  padding: 0;
 }
 
 .detalle__titulo {
@@ -317,7 +323,7 @@
   .detalle__precio {
     font-size: 1.8rem;
   }
-  
+ 
   .medida {
     flex-direction: column;
     gap: 0.3rem;

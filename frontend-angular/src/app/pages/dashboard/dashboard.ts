@@ -13,13 +13,8 @@ import { RouterModule, Router } from '@angular/router';
 })
 export class Dashboard implements OnInit {
 
-  // Angular (CRUD ilustraciones)
   ilustraciones: any[] = [];
-
-  // React (solo lectura)
   librosReact: any[] = [];
-
-  // Ventas / compras
   compras: any[] = [];
 
   nuevaIlustracion = {
@@ -30,12 +25,14 @@ export class Dashboard implements OnInit {
 
   imagenSeleccionada: File | null = null;
   editandoId: number | null = null;
-
   mensaje: string = '';
 
   private readonly BASE_URL = 'http://localhost:3001';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) {
+    // 🔥 ESTO OBLIGA A QUE EL COMPONENTE SE RECARGUE SIEMPRE
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+  }
 
   ngOnInit() {
     this.cargarIlustraciones();
@@ -43,11 +40,7 @@ export class Dashboard implements OnInit {
     this.cargarCompras();
   }
 
-  ngAfterViewInit(){
-    this.cargarIlustraciones();
-  }
-
-  // ---------- Helpers ----------
+  // ---------- HELPER ----------
   rutaImagen(img: string): string {
     if (!img) return '';
     if (img.startsWith('http')) return img;
@@ -59,7 +52,7 @@ export class Dashboard implements OnInit {
     return item?.coleccion || item?.categoria || item?.genero || item?.colección || '—';
   }
 
-  // ---------- GET ----------
+  // ---------- CARGAR DATOS ----------
   cargarIlustraciones() {
     this.http.get<any[]>(`${this.BASE_URL}/api/proyecto5/angular`)
       .subscribe(data => {
@@ -81,7 +74,7 @@ export class Dashboard implements OnInit {
       });
   }
 
-  // ---------- FORM ----------
+  // ---------- FORMULARIO ----------
   seleccionarImagen(event: any) {
     this.imagenSeleccionada = event?.target?.files?.[0] ?? null;
   }
@@ -106,7 +99,7 @@ export class Dashboard implements OnInit {
         `${this.BASE_URL}/api/proyecto5/angular/${this.editandoId}`,
         formData
       ).subscribe(() => {
-        this.mensaje = 'Ilustración actualizada correctamente';
+        this.mensaje = '✅ Ilustración actualizada correctamente';
         this.resetear();
       });
     } else {
@@ -114,13 +107,14 @@ export class Dashboard implements OnInit {
         `${this.BASE_URL}/api/proyecto5/angular`,
         formData
       ).subscribe(() => {
-        this.mensaje = 'Ilustración creada correctamente';
+        this.mensaje = '✅ Ilustración creada correctamente';
         this.resetear();
       });
     }
   }
 
   editar(item: any) {
+    console.log('Editando:', item);
     this.nuevaIlustracion = {
       titulo: item.titulo,
       coleccion: item.coleccion,
@@ -128,6 +122,12 @@ export class Dashboard implements OnInit {
     };
     this.editandoId = item.id;
     this.imagenSeleccionada = null;
+  }
+
+  cancelarEdicion() {
+    this.nuevaIlustracion = { titulo: '', coleccion: '', precio: 0 };
+    this.imagenSeleccionada = null;
+    this.editandoId = null;
   }
 
   eliminar(id: number) {
@@ -138,17 +138,13 @@ export class Dashboard implements OnInit {
       });
   }
 
-  verDetalle(item: any) {
-    console.log('Ver detalle de:', item);
-  }
-
   resetear() {
     this.nuevaIlustracion = { titulo: '', coleccion: '', precio: 0 };
     this.imagenSeleccionada = null;
     this.editandoId = null;
-    this.cargarIlustraciones();
-  }
-  ngOnDestroy() {
-    // Forzar limpieza al salir del componente
+    setTimeout(() => {
+      this.mensaje = '';
+      this.cargarIlustraciones();
+    }, 2000);
   }
 }
