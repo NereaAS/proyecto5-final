@@ -222,5 +222,40 @@
     "coleccion": "kawaii",
     "precio": "25",
     "imagen": "/uploads/1772197634673.jpg"
+  },
+  {
+    "id": 1772896540804,
+    "titulo": "Power",
+    "coleccion": "shonen",
+    "precio": "45",
+    "imagen": "/uploads/1772896540687.jpg"
+  },
+  {
+    "id": 1772989571038,
+    "titulo": "Attack on Titan",
+    "coleccion": "manga",
+    "precio": "35",
+    "imagen": "/uploads/1772989571003.jpg"
+  },
+  {
+    "id": 1773246952184,
+    "titulo": "Satoru Gojo",
+    "coleccion": "manga",
+    "precio": "30",
+    "imagen": "/uploads/1773246952138.jpg"
+  },
+  {
+    "id": 1773247127615,
+    "titulo": "Tanjiro",
+    "coleccion": "shonen",
+    "precio": "40",
+    "imagen": "/uploads/1773247127580.jpg"
+  },
+  {
+    "id": 1773247192076,
+    "titulo": "Boku Gancho",
+    "coleccion": "kawaii",
+    "precio": "25",
+    "imagen": "/uploads/1773247192040.jpg"
   }
 ]
