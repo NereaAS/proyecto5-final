@@ -743,6 +743,48 @@ main h1, main h2{
   color: #9addff;
 }
 
+/* =========================
+   CARRITO EN NAVBAR
+========================= */
+.cart-hover-container {
+  position: relative;
+  display: inline-block;
+}
+
+.cart-hover-container:hover .minicart {
+  display: block;
+}
+
+.cart-hover-container .minicart {
+  display: none;
+}
+
+.cart-icon {
+  position: relative;
+  margin-left: 1rem;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: #9addff !important;
+  display: inline-flex;
+  align-items: center;
+}
+
+.cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: #2c5cc5;
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
 
 /* =========================
   RESPONSIVE

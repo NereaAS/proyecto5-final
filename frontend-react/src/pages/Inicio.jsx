@@ -1,16 +1,17 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
+import { CartContext } from "../context/CartContext";
 
 const API_URL = "http://localhost:3001/api/proyecto5/react";
-const VENTAS_URL = "http://localhost:3001/api/proyecto5/ventas";
 
 export default function Inicio() {
   const [libros, setLibros] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
-
   const [mensaje, setMensaje] = useState("");
-  const [comprandoId, setComprandoId] = useState(null);
+  const [añadiendoId, setAñadiendoId] = useState(null);
+
+  const { addToCart } = useContext(CartContext);
 
   useEffect(() => {
     setCargando(true);
@@ -24,38 +25,19 @@ export default function Inicio() {
       .finally(() => setCargando(false));
   }, []);
 
-  const comprar = (producto) => {
+  const añadirAlCarrito = (producto) => {
     if (!producto) return;
-
-    setComprandoId(producto.id);
-
-    fetch(VENTAS_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        comprador: "Nerea Alba Sanz",
-        origen: "react",
-        producto: {
-          id: producto.id,
-          titulo: producto.titulo,
-          autor: producto.autor,
-          precio: producto.precio,
-        },
-      }),
-    })
-      .then((r) => {
-        if (!r.ok) throw new Error("Error al registrar la compra");
-        return r.json();
-      })
-      .then(() => {
-        setMensaje(`Compra registrada ✅ (${producto.titulo})`);
-        setTimeout(() => setMensaje(""), 2500);
-      })
-      .catch(() => {
-        setMensaje("No se pudo registrar la compra ❌");
-        setTimeout(() => setMensaje(""), 2500);
-      })
-      .finally(() => setComprandoId(null));
+    setAñadiendoId(producto.id);
+    addToCart({
+      id: producto.id,
+      titulo: producto.titulo,
+      precio: producto.precio,
+      imagen: producto.imagen,
+      autor: producto.autor,
+    });
+    setMensaje(`✅ Añadido al carrito (${producto.titulo})`);
+    setTimeout(() => setMensaje(""), 2500);
+    setAñadiendoId(null);
   };
 
   if (cargando) return <main><h2>Cargando catálogo...</h2></main>;
@@ -65,7 +47,7 @@ export default function Inicio() {
     <main>
       <h1>Libros</h1>
 
-      {mensaje && <p>{mensaje}</p>}
+      {mensaje && <p style={{ background: "#d4edda", color: "#155724", padding: "0.5rem", borderRadius: "4px" }}>{mensaje}</p>}
 
       <div className="grid-libros">
         {libros.map((libro) => (
@@ -79,14 +61,11 @@ export default function Inicio() {
 
             <div className="acciones">
               <Link to={`/productos/${libro.id}`}>Ver detalle</Link>
-
               <button
-                onClick={() => comprar(libro)}
-                disabled={comprandoId === libro.id}
-                aria-busy={comprandoId === libro.id}
-                title="Registrar compra"
+                onClick={() => añadirAlCarrito(libro)}
+                disabled={añadiendoId === libro.id}
               >
-                {comprandoId === libro.id ? "Comprando..." : "Comprar"}
+                {añadiendoId === libro.id ? "Añadiendo..." : "🛒 Añadir al carrito"}
               </button>
             </div>
 

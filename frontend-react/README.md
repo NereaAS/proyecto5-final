@@ -167,11 +167,22 @@ POST   /api/proyecto5/ventas
 ✔️ Estilos personalizados
 ✔️ Logo y favicon originales creados en Procreate
 
+## 🛒 Actualización final
+
+Durante los últimos días previos a la entrega, se implementó un **carrito de compras completo** en React, con las siguientes características:
+
+- 🛍️ **Añadir al carrito** desde la página de inicio y desde el detalle de cada libro.
+- 🔢 **Contador en el navbar** que se actualiza en tiempo real.
+- 🖱️ **Minicarrrito desplegable al hacer hover** sobre el icono del carrito.
+- 💾 **Persistencia con `localStorage`** (el carrito no se pierde al recargar la página).
+- 📄 **Página de carrito** con opciones para modificar cantidades, eliminar productos y vaciar el carrito.
+- ✅ **Registro de compras** mediante el endpoint `/api/proyecto5/ventas` al finalizar la compra.
+
 🔜 Posibles mejoras futuras:
 
 · Autenticación de usuarios
 · Buscador y filtros
-· Carrito persistente
+
 
 ---
 
